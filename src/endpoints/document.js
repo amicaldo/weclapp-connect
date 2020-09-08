@@ -52,12 +52,12 @@ module.exports = {
 	},
 
 	/**
-	 * @param id
-	 * @param id
+	 * @param docId
+	 * @param versionId
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getDocumentVersion(fetch, id) {
-		return fetch(buildUrl(`document/id/${id}/downloadDocumentVersion`))
+	async getDocumentVersion(fetch, docId, versionId) {
+		return fetch(buildUrl(`document/id/${docId}/downloadDocumentVersion`, { id: versionId }));
 	},
 
 	/**
