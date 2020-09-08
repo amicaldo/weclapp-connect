@@ -3,10 +3,12 @@ const {buildUrl} = require('../utils')
 module.exports = {
 
 	/**
+	 * @param {object} [params]
+	 *
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async getDocument(fetch) {
-		return fetch('document')
+	async getDocument(fetch, params = { }) {
+		return fetch(buildUrl('document', params))
 	},
 
 	/**
