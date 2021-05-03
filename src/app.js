@@ -29,17 +29,17 @@ module.exports = function ({domain = null, tenant, apikey}) {
 	 * @param endpoint Endpoint
 	 * @param method Request method, GET by default
 	 * @param body Request body
+	 * @param contentType HTTP Content Type
 	 * @returns {Promise<*>}
 	 */
-	async function fetchAPI(endpoint, {method = 'GET', body = null} = {}) {
+	async function fetchAPI(endpoint, {method = 'GET', body = null, contentType = 'application/json'} = {}) {
 		method = method.toUpperCase()
 
-
 		return fetch(`https://${domain || `${tenant}.weclapp.com`}/webapp/api/v1/${endpoint}`, {
-			...(body && {body: JSON.stringify(body)}),
+			body: (contentType === 'application/json' ? JSON.stringify(body) : body),
 			method,
 			headers: {
-				'Content-Type': 'application/json',
+				'Content-Type': contentType,
 				'Accept': 'application/json',
 				'AuthenticationToken': apikey
 			}

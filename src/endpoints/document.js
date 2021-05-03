@@ -64,10 +64,11 @@ module.exports = {
 	 * @param id
 	 * @param comment
 	 * @param body
+	 * @param contentType
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createDocument(fetch, {id, comment}, body) {
-		return fetch(buildUrl(`document/id/${id}/upload`, {id, comment}), {method: 'POST', body})
+	async createDocument(fetch, {id, comment}, body, contentType) {
+		return fetch(buildUrl(`document/id/${id}/upload`, {id, comment}), {method: 'POST', body, contentType})
 	},
 
 	/**
@@ -75,10 +76,11 @@ module.exports = {
 	 * @param entityId
 	 * @param name
 	 * @param description
+	 * @param contentType
 	 * @param body
 	 * @returns {Promise<*|Promise<*>|Promise|Promise<Response>|never>}
 	 */
-	async createEntityDocument(fetch, {entityName, entityId, name, description}, body) {
-		return fetch(buildUrl('document/upload', {entityName, entityId, name, description}), {method: 'POST', body})
+	async createEntityDocument(fetch, {entityName, entityId, name, description, contentType}, body) {
+		return fetch(buildUrl('document/upload', {entityName, entityId, name, description}), {method: 'POST', body, contentType})
 	}
 }
