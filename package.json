@@ -15,12 +15,12 @@
 	},
 	"devDependencies": {
 		"@weclapp/eslint-config": "^0.1.0",
-		"chai": "^4.2.0",
-		"eslint": "^5.16.0",
-		"mocha": "^6.1.2"
+		"chai": "^4.3.4",
+		"eslint": "^7.27.0",
+		"mocha": "^8.4.0"
 	},
 	"dependencies": {
-		"node-fetch": "^2.3.0"
+		"node-fetch": "^2.6.1"
 	},
 	"repository": {
 		"type": "git",
